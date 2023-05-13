@@ -38,6 +38,8 @@ app.post( '/auth/login', loginValidation, handleValidationErrors, UserController
 app.post( '/auth/register', registerValidation, handleValidationErrors, UserController.register )
 app.get( '/auth/me', checkAuth, UserController.getMe )
 
+app.get( '/tags', PostController.getLastTags )
+app.get( '/posts/tags', PostController.getLastTags ) // Get all tags
 app.get( '/posts', PostController.getAll ) // Get all articles
 app.get( '/posts/:id', PostController.getOne ) // Get one article
 app.post( '/posts/', checkAuth, postCreateValidation, handleValidationErrors, PostController.create ) // Create an article
