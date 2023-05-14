@@ -29,18 +29,12 @@ export const getAll = async ( req, res ) => {
 export const getOne = async ( req, res ) => {
     try {
         const postId = req.params.id // Get the ID of the desired article from the query params
-
         PostModel.findOneAndUpdate(
-            { // Find the article by id
-                _id: postId,
-            },
-            {
-                $inc: { viewsCount: 1 },  // Update the number of views
-            },
-            {
-                returnDocument: 'after', // Return document after update
-            },
-        ).then( ( doc ) => {
+            { _id: postId, },
+            { $inc: { viewsCount: 1 }, },// Update the number of views
+            { returnDocument: 'after', }// Return document after update
+        )
+        .then( ( doc ) => {
             if ( !doc ) {
                 return res.status( 404 ).json( {
                     message: 'Article not found'
@@ -48,7 +42,6 @@ export const getOne = async ( req, res ) => {
             }
             res.json( doc )
         } )
-
     } catch ( err ) {
         console.log( err )
         res.status( 500 ).json( {

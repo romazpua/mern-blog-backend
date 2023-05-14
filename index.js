@@ -24,6 +24,7 @@ const storage = multer.diskStorage( {
 
 const upload = multer( { storage } )
 
+app.use( cors() )
 app.post( '/upload', checkAuth, upload.single( 'image' ), ( req, res ) => {
     res.json( {
         url: `/uploads/${ req.file.originalname }`
@@ -31,7 +32,6 @@ app.post( '/upload', checkAuth, upload.single( 'image' ), ( req, res ) => {
 } )
 
 app.use( '/uploads', express.static( 'uploads' ) )
-app.use( cors() )
 app.use( express.json() ) // for Express understand JSON
 
 app.post( '/auth/login', loginValidation, handleValidationErrors, UserController.login )
