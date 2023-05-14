@@ -8,9 +8,11 @@ http://localhost:4444/
 2023-05-12 timeline - 02:31:57
 2023-05-13 timeline - 02:36:23
 2023-05-13 timeline - 03:27:36
-2023-05-14 timeline - 03:54:09
+2023-05-14 timeline - 03:54:09 (to end)
 
 ЗАЛИТЬ НА GIT!!!
 
 
 03:47:28 - Не отображаются авторы статей!!!
+
+04:13:00 - DEPLOY НА HEROKU (backend) И НА VERSEL (frontend)
